@@ -15,7 +15,7 @@ def list_books(request):
     }
 
 
-    return render(request, 'index.html', context)
+    return render(request, 'base.html', context)
 
 
 class AuthorList(View):

@@ -1,17 +1,8 @@
-<html>
-<head>
-    <title>Authors Page</title>
+{% extends "base.html" %}
 
-</head>
-<body>
+{% block content %}
+	{% for author in authors %}
+		<h2><a href="{% url 'author-detail' author.pk %}">{{ author.name }}</a></h2>
+	{% endfor %}
+{% endblock %}
 
-{% for author in authors %}
-
-<h2>{{ author.name }}</h2>
-
-{% endfor %}
-
-</body>
-
-
-</html>
