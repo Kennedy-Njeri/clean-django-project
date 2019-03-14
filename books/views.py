@@ -4,6 +4,8 @@ from django.views.generic import View, DetailView
 from django.db.models import Count
 from .forms import ReviewForm
 from .forms import BookForm
+from django.urls import reverse
+from django.views.generic.edit import CreateView
 # Create your views here.
 
 
@@ -119,3 +121,12 @@ def review_book(request, pk):
     }
 
     return render(request, "review-book.html", context)
+
+
+class CreateAuthor(CreateView):
+    model = Author
+    fields = ['name',]
+    template_name = "create-author.html"
+
+    def get_success_url(self):
+        return reverse('review-books')
