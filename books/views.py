@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Book, Author
 from django.views.generic import View, DetailView
@@ -93,7 +94,7 @@ class ReviewList(View):
 
 
 
-
+@login_required
 def review_book(request, pk):
     """
     Review an individual book
