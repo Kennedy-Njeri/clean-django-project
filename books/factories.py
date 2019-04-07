@@ -48,11 +48,3 @@ class BookFactory(factory.django.DjangoModelFactory):
             for authors in extracted:
                 self.authors.add(authors)
 
-
-class ReviewFactory(BookFactory):
-    """
-    Creates a book with a review.
-    """
-    review = factory.Faker('text', max_nb_chars=400)
-    date_reviewed = now()
-    reviewed_by = factory.SubFactory(UserFactory)
